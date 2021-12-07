@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- normalize CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+
+
+  <link rel="stylesheet" href="style.css">
+  <title>My New Project</title>
+
+</head>
+
+<body>
+
+<header>
+
+</header>
+
+<main>
+
+<!-- Use Article for an article of content -->
+  <article id="outer" class="outer">
+    <div class="image"><img src="winter.jpg" alt="add an alt"/></div>
+    <div id="top-image" class="image top-image"><img src="late-summer.jpg" alt="add an alt"/></div>
+  </article>
+
+</main>
+
+</body>
+<script src="action.js"></script>
+<!--
+  TLDR: scripts should be asynchronous or deferred until after the first render.
+  https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup
+  https://developers.google.com/speed/docs/insights/BlockingJS Put small inline script is necessary
+ -->
+</html>
+
+
+
