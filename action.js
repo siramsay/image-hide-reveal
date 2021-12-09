@@ -8,5 +8,15 @@ trackerElement.addEventListener('mousemove', trackMousePosition );
 function trackMousePosition(theEvent) {
   //alert ('the mouse moved');
   console.log(theEvent.clientX);
-  topImage.style.width = theEvent.clientX + 'px';
+
+  // topImage.style.width = theEvent.clientX + 'px';
+  // const tracker = document.getElementById("tracker");
+  const tracker = trackerElement.getBoundingClientRect();
+  console.log(tracker.left);
+
+  let mousePointerPos;
+  mousePointerPos = theEvent.clientX - tracker.left;
+  console.log(mousePointerPos);
+  topImage.style.width = mousePointerPos + 'px';
+
 }
