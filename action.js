@@ -11,12 +11,14 @@ function trackMousePosition(theEvent) {
 
   // topImage.style.width = theEvent.clientX + 'px';
   // const tracker = document.getElementById("tracker");
-  const tracker = trackerElement.getBoundingClientRect();
-  console.log(tracker.left);
+  const trackerDOMRect = trackerElement.getBoundingClientRect();
+  console.log(trackerDOMRect.left);
 
   let mousePointerPos;
-  mousePointerPos = theEvent.clientX - tracker.left;
+  mousePointerPos = theEvent.clientX - trackerDOMRect.left;
   console.log(mousePointerPos);
-  topImage.style.width = mousePointerPos + 'px';
+  let imageWrapperWidth =  mousePointerPos/10;
+  console.log(imageWrapperWidth + '%');
+  topImage.style.width = imageWrapperWidth + '%';
 
 }
