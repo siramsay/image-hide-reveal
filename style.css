@@ -53,3 +53,17 @@ main {
   width: 550px;
   overflow: hidden;
 }
+#handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
+  height: 99.5%;
+  background: #37b822ad;
+  text-shadow: 2px 2px 4px;
+  cursor: col-resize;
+  display: none;
+}
+.outer:hover #handle {
+  display: block;
+}
