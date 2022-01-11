@@ -1,24 +1,28 @@
 const trackerElement = document.getElementById("outer");
-const topImage  =  document.getElementById("top-image");
-//topImage.style.width = '75%';
+const topImage = document.getElementById("top-image");
+const handle = document.getElementById("handle");
 
-//topImage.addEventListener('mousemove', trackMousePosition );
-trackerElement.addEventListener('mousemove', trackMousePosition );
+handle.addEventListener('mousedown', function () {
 
-function trackMousePosition(theEvent) {
-  //alert ('the mouse moved');
-  console.log(theEvent.clientX);
+    trackerElement.addEventListener('mousemove', trackMousePosition);
 
-  // topImage.style.width = theEvent.clientX + 'px';
-  // const tracker = document.getElementById("tracker");
-  const trackerDOMRect = trackerElement.getBoundingClientRect();
-  console.log(trackerDOMRect.left);
+    handle.onmouseup = function (e) {
+        trackerElement.removeEventListener('mousemove', trackMousePosition);
+    };
+    window.addEventListener('mouseup', function (event) {
+        trackerElement.removeEventListener('mousemove', trackMousePosition);
+    })
 
-  let mousePointerPos;
-  mousePointerPos = theEvent.clientX - trackerDOMRect.left;
-  console.log(mousePointerPos);
-  let imageWrapperWidth =  mousePointerPos/10;
-  console.log(imageWrapperWidth + '%');
-  topImage.style.width = imageWrapperWidth + '%';
+    function trackMousePosition(theEvent) {
 
-}
+        const trackerDOMRect = trackerElement.getBoundingClientRect();
+
+
+        let mousePointerPos;
+        mousePointerPos = theEvent.clientX - trackerDOMRect.left;
+
+        let imageWrapperWidth = mousePointerPos / 10;
+        topImage.style.width = imageWrapperWidth + '%';
+
+    }
+});
