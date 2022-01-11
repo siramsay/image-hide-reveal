@@ -46,6 +46,10 @@ main {
 
 .image {
   position: absolute;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
 }
 /* top image size check: Used in step 1 on the image
  * & then width of the container in step 2 */
