@@ -22,7 +22,12 @@ handle.addEventListener('mousedown', function () {
         mousePointerPos = theEvent.clientX - trackerDOMRect.left;
 
         let imageWrapperWidth = mousePointerPos / 10;
-        topImage.style.width = imageWrapperWidth + '%';
+
+        if (imageWrapperWidth <= 100) {
+            topImage.style.width = imageWrapperWidth + "%";
+        } else {
+            topImage.style.width = "100%";
+        }
 
     }
 });
