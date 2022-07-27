@@ -32,15 +32,16 @@ body {
 /* Centre everything in the main element */
 main {
   width: 100vw;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
+  margin-top: 20px;
 }
 
 .outer {
   width: 1010px;
-  height: 757px;
+  /*height: 757px;*/
   position: relative;
 }
 
@@ -59,7 +60,7 @@ img {
 /* top image size check: Used in step 1 on the image
  * & then width of the container in step 2 */
 .top-image {
-  width: 550px;
+  width: 50%;
   overflow: hidden;
 }
 #handle {
