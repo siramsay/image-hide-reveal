@@ -7,6 +7,6 @@ Most recent branch is https://github.com/siramsay/image-hide-reveal/tree/make-re
 
 ## About the article series
 
-The article series is a mcuh about showing development is a irritative process as it about the viewer. It is also about how you can use Git to manage branches of projects and also a place for be to practice technical writing and content creation. It is hoped however, that a final library can be created that will be useful for others in the future.
+The article series is a much about showing development is a irritative process as it about the viewer. It is also about how you can use Git to manage branches of projects and also a place for be to practice technical writing and content creation. It is hoped however, that a final library can be created that will be useful for others in the future.
 
 
