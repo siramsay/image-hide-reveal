@@ -32,15 +32,16 @@ body {
 /* Centre everything in the main element */
 main {
   width: 100vw;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
+  margin-top: 20px;
 }
 
 .outer {
   width: 1010px;
-  height: 757px;
+  /*height: 757px;*/
   position: relative;
 }
 
@@ -51,10 +52,15 @@ main {
   -webkit-user-select:none;
   -webkit-touch-callout:none;
 }
+
+img {
+  max-width: 1010px;
+  width: 100vw;
+}
 /* top image size check: Used in step 1 on the image
  * & then width of the container in step 2 */
 .top-image {
-  width: 550px;
+  width: 50%;
   overflow: hidden;
 }
 #handle {

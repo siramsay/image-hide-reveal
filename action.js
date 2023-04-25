@@ -1,33 +1,56 @@
 const trackerElement = document.getElementById("outer");
 const topImage = document.getElementById("top-image");
 const handle = document.getElementById("handle");
+let maxWidth = 1010;
+
+window.onload = function() {
+  document.onselectstart = function() {return false;} // ie
+  document.onmousedown = function() {return false;} // mozilla
+}
 
 handle.addEventListener('mousedown', function () {
 
-    trackerElement.addEventListener('mousemove', trackMousePosition);
+  var windowWidth = document.body.clientWidth;
 
-    handle.onmouseup = function (e) {
-        trackerElement.removeEventListener('mousemove', trackMousePosition);
-    };
-    window.addEventListener('mouseup', function (event) {
-        trackerElement.removeEventListener('mousemove', trackMousePosition);
-    })
+  trackerElement.addEventListener('mousemove', trackMousePosition);
 
-    function trackMousePosition(theEvent) {
+  handle.onmouseup = function (e) {
+    trackerElement.removeEventListener('mousemove', trackMousePosition);
+  };
+  window.addEventListener('mouseup', function (event) {
+    trackerElement.removeEventListener('mousemove', trackMousePosition);
+  })
 
-        const trackerDOMRect = trackerElement.getBoundingClientRect();
+  function trackMousePosition(theEvent) {
 
+    const xPos = theEvent.clientX;
 
-        let mousePointerPos;
-        mousePointerPos = theEvent.clientX - trackerDOMRect.left;
+    const trackerDOMRect = trackerElement.getBoundingClientRect();
 
-        let imageWrapperWidth = mousePointerPos / 10;
+    let mousePointerPos;
+    mousePointerPos = theEvent.clientX - trackerDOMRect.left;
 
-        if (imageWrapperWidth <= 100) {
-            topImage.style.width = imageWrapperWidth + "%";
-        } else {
-            topImage.style.width = "100%";
-        }
+    //Check window width
+    if (windowWidth <= maxWidth) {
+      
+      if (xPos <= windowWidth) {
+        topImage.style.width = xPos + "px";
+      } else {
+        topImage.style.width = windowWidth;
+      }
+
+    } else {
+
+      let imageWrapperWidth = mousePointerPos / 10;
+
+      if (imageWrapperWidth <= 100) {
+        topImage.style.width = imageWrapperWidth + "%";
+      } else {
+        topImage.style.width = "100%";
+      }
 
     }
+
+  }
+
 });
