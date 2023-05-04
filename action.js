@@ -32,7 +32,7 @@ handle.addEventListener('mousedown', function () {
 
     //Check window width
     if (windowWidth <= maxWidth) {
-      
+
       if (xPos <= windowWidth) {
         topImage.style.width = xPos + "px";
       } else {
@@ -52,5 +52,11 @@ handle.addEventListener('mousedown', function () {
     }
 
   }
+
+});
+
+handle.addEventListener('touchmove', function (e) {
+
+  console.log("touchmove");
 
 });
