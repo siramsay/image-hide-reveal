@@ -57,6 +57,42 @@ handle.addEventListener('mousedown', function () {
 
 handle.addEventListener('touchmove', function (e) {
 
-  console.log("touchmove");
+  //console.log("touchmove");
+
+  var windowWidth = document.body.clientWidth;
+
+  trackerElement.addEventListener('touchmove', trackMousePosition);
+
+  function trackMousePosition(theEvent) {
+
+    const xTouchPos = e.clientX || e.targetTouches[0].pageX;
+
+    const trackerDOMRect = trackerElement.getBoundingClientRect();
+
+    let mousePointerPos;
+    mousePointerPos = xTouchPos - trackerDOMRect.left;
+
+    //Check window width
+    if (windowWidth <= maxWidth) {
+
+      if (xTouchPos <= windowWidth) {
+        topImage.style.width = xTouchPos + "px";
+      } else {
+        topImage.style.width = windowWidth;
+      }
+
+    } else {
+
+      let imageWrapperWidth = mousePointerPos / 10;
+
+      if (imageWrapperWidth <= 100) {
+        topImage.style.width = imageWrapperWidth + "%";
+      } else {
+        topImage.style.width = "100%";
+      }
+
+    }
+
+  }
 
 });
