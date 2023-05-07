@@ -63,6 +63,10 @@ handle.addEventListener('touchmove', function (e) {
 
   trackerElement.addEventListener('touchmove', trackMousePosition);
 
+  handle.ontouchend = function (e) {
+    handle.style.display ="none";
+  }
+
   function trackMousePosition(theEvent) {
 
     const xTouchPos = e.clientX || e.targetTouches[0].pageX;
