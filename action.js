@@ -29,6 +29,7 @@ handle.addEventListener('mousedown', function () {
 
     let mousePointerPos;
     mousePointerPos = theEvent.clientX - trackerDOMRect.left;
+    console.log('mouse pointer pos: ', mousePointerPos);
 
     //Check window width
     if (windowWidth <= maxWidth) {
@@ -57,25 +58,34 @@ handle.addEventListener('mousedown', function () {
 
 handle.addEventListener('touchmove', function (e) {
 
-  //console.log("touchmove");
-
   var windowWidth = document.body.clientWidth;
 
   trackerElement.addEventListener('touchmove', trackMousePosition);
 
-  handle.ontouchend = function (e) {
+  // Initial handle functionality set on handle. Set it on outer.
+  // handle.ontouchend = function (e) {
+  //  handle.style.display ="none";
+  // }
+
+  outer.ontouchstart = function (e) {
+    handle.style.display ="block";
+    console.log('outer touch start')
+  }
+  outer.ontouchend = function (e) {
     handle.style.display ="none";
+    console.log('outer touch ended')
   }
 
-  function trackMousePosition(theEvent) {
+  function trackMousePosition(e) {
 
     const xTouchPos = e.clientX || e.targetTouches[0].pageX;
+    console.log('boo: ', xTouchPos)
 
     const trackerDOMRect = trackerElement.getBoundingClientRect();
 
     let mousePointerPos;
     mousePointerPos = xTouchPos - trackerDOMRect.left;
-
+    console.log('boo boo 2: ', mousePointerPos);
     //Check window width
     if (windowWidth <= maxWidth) {
 
