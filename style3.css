@@ -44,9 +44,12 @@ main {
   /*height: 757px;*/
   position: relative;
 }
-
+#image {
+  /* added for coarse*/
+}
 .image {
   position: absolute;
+  overflow: hidden; /* added for coarse*/
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select:none;
@@ -62,6 +65,12 @@ img {
 .top-image {
   width: 50%;
   overflow: hidden;
+
+  /*Not really needed, added to test coarse hover*/
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
 }
 #handle {
   position: absolute;
@@ -76,4 +85,20 @@ img {
 }
 .outer:hover #handle {
   display: block;
+}
+
+/*
+.outer:hover #top-image {
+  box-shadow: 10px 0 #1b2b34; /*#37b822ad;*
+}
+*/
+
+.outer:hover .top-image {
+  box-shadow: 2px 0 black;
+}
+
+@media(pointer: coarse) {
+  .outer:hover .top-image {
+    box-shadow: 10px 0 #1b2b34;
+  }
 }

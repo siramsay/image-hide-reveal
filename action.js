@@ -56,25 +56,26 @@ handle.addEventListener('mousedown', function () {
 
 });
 
-handle.addEventListener('touchmove', function (e) {
+handle.addEventListener('touchstart', function (e) {
 
   var windowWidth = document.body.clientWidth;
 
   trackerElement.addEventListener('touchmove', trackMousePosition);
 
   // Initial handle functionality set on handle. Set it on outer.
-  // handle.ontouchend = function (e) {
-  //  handle.style.display ="none";
-  // }
+  handle.ontouchend = function (e) {
+    handle.style.background ="none";
+    handle.style.display ="none";
+  }
 
-  outer.ontouchstart = function (e) {
+  /*outer.ontouchstart = function (e) {
     handle.style.display ="block";
     console.log('outer touch start')
   }
   outer.ontouchend = function (e) {
     handle.style.display ="none";
     console.log('outer touch ended')
-  }
+  }*/
 
   function trackMousePosition(e) {
 
@@ -109,4 +110,4 @@ handle.addEventListener('touchmove', function (e) {
 
   }
 
-});
+}, false);
