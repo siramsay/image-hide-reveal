@@ -55,33 +55,26 @@ handle.addEventListener('mousedown', function () {
 
 });
 handle.addEventListener('touchmove', function (e) {
-  // console.log('Touch Move')
+  //console.log('Touch Move');
 
   var windowWidth = document.body.clientWidth;
 
-  trackerElement.addEventListener('mousemove', trackMousePosition);
-
-  handle.onmouseup = function (e) {
-    trackerElement.removeEventListener('mousemove', trackMousePosition);
-  };
-  window.addEventListener('mouseup', function (event) {
-    trackerElement.removeEventListener('mousemove', trackMousePosition);
-  })
+  trackerElement.addEventListener('touchmove', trackMousePosition);
 
   function trackMousePosition(theEvent) {
 
-    const xPos = theEvent.clientX;
+    const xTouchPos = theEvent.clientX || theEvent.targetTouches[0].pageX;
 
     const trackerDOMRect = trackerElement.getBoundingClientRect();
 
     let mousePointerPos;
-    mousePointerPos = theEvent.clientX - trackerDOMRect.left;
+    mousePointerPos = xTouchPos - trackerDOMRect.x;
 
     //Check window width
     if (windowWidth <= maxWidth) {
 
-      if (xPos <= windowWidth) {
-        topImage.style.width = xPos + "px";
+      if (xTouchPos <= windowWidth) {
+        topImage.style.width = xTouchPos + "px";
       } else {
         topImage.style.width = windowWidth;
       }
@@ -99,6 +92,5 @@ handle.addEventListener('touchmove', function (e) {
     }
 
   }
-
 
 });
