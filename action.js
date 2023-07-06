@@ -2,11 +2,21 @@ const trackerElement = document.getElementById("outer");
 const topImage = document.getElementById("top-image");
 const handle = document.getElementById("handle");
 let maxWidth = 1010;
+const mobileInitiation = document.querySelector(".mobile-initiation")
 
 window.onload = function() {
   document.onselectstart = function() {return false;} // ie
   document.onmousedown = function() {return false;} // mozilla
 }
+
+/* Remove touch message  */
+document.addEventListener("DOMContentLoaded", function() {
+  mobileInitiation.addEventListener("click", function () {
+    mobileInitiation.style.display = "none";
+    handle.style.display = "block";
+  });
+});
+
 
 handle.addEventListener('mousedown', function () {
 
@@ -56,7 +66,7 @@ handle.addEventListener('mousedown', function () {
 });
 handle.addEventListener('touchmove', function (e) {
   //console.log('Touch Move');
-
+  
   var windowWidth = document.body.clientWidth;
 
   trackerElement.addEventListener('touchmove', trackMousePosition);
